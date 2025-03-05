@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from src.exception import CustomException
 from src.components.data_transformation import Data_transformation
 import numpy as np
+from src.components.model_trainer import Model_trainer
 
 @dataclass
 class Data_ingestion_config:
@@ -41,6 +42,10 @@ if __name__ == "__main__":
     train_arr,test_arr, pre_processor_object_path=data_transformer.initiate_data_transformation(train_path,test_path)
     print(f"Shape of train Array: {train_arr.shape}")
     print(f"Shape of test Array: {test_arr.shape}")
+    engine = Model_trainer()
+    score =engine.initiate_training(train_arr,test_arr)
+    print(f" The r2_score from the best_model is: {score}")
+    
         
     
     

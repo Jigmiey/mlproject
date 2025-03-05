@@ -61,7 +61,7 @@ class Data_transformation:
             logging.info("Obtaining Pre processing object")
             processor = self.get_data_transformer_object()
             X_train = processor.fit_transform(X_train)
-            X_test = processor.fit_transform(X_test)
+            X_test = processor.transform(X_test)
             train_arr = np.c_[X_train,np.array(y_train)]
             test_arr = np.c_[X_test, np.array(y_test)]
             logging.info("Saving Pre processing object")
