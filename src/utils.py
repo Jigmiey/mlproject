@@ -28,6 +28,9 @@ def evaluate_model(X_train, y_trian,X_test,y_test,models,params):
         return result
     except Exception as e:
         raise CustomException(e,sys)
+def load_object(file_path):
+    with open(file_path,"rb") as file:
+        return dill.load(file,file_path)
         
         
         
